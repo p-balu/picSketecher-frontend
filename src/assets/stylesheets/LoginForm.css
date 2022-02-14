@@ -1,0 +1,53 @@
+.text-input {
+  width: 80%;
+  padding: 18px 45px;
+  border: 1px solid #c2c2c2;
+  border-radius: 20px;
+  margin-top: 2%;
+  font-size: medium;
+}
+.form-fields {
+  padding: 5px 20px;
+}
+
+.form-field {
+  margin-top: 5%;
+}
+
+.label {
+  color: black;
+  font-weight: 600;
+}
+
+.button-1 {
+  background-color: #365a0c;
+  border: none;
+  border-radius: 20px;
+  padding: 18px 45px;
+  color: white;
+  font-size: large;
+  cursor: pointer;
+  font-weight: 500;
+  width: 100%;
+  margin-top: 5%;
+}
+
+.forgot-password {
+  display: flex;
+  cursor: pointer;
+  margin-left: 65%;
+  margin-top: 2%;
+}
+
+.footer {
+  text-align: center;
+}
+
+.sign-up-now {
+  color: #365a0c;
+  border: none;
+  background: white;
+  cursor: pointer;
+  font-size: large;
+  font-weight: bold;
+}

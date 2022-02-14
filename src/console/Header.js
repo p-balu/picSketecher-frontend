@@ -1,0 +1,44 @@
+import React, { useEffect, useImperativeHandle, useRef, useState } from "react";
+import Logo from "../assets/images/logo.png";
+import "../assets/stylesheets/Header.css";
+import Modal from "../components/Modal";
+import Login from "./Login";
+const Header = () => {
+  const [show, setShow] = useState(false);
+
+  //event handlers
+  const handleLogin = (event) => {
+    event.preventDefault();
+    setShow(true);
+  };
+  const handleStart = (event) => {
+    event.preventDefault();
+  };
+  const handleClose = () => {
+    setShow(false);
+  };
+
+  return (
+    <>
+      <div className="header">
+        <img src={Logo} alt="logo" className="logo" />
+        <div className="navLinks">
+          <button className="link1" onClick={handleLogin}>
+            Login
+          </button>
+          <button className="link2" onClick={handleStart}>
+            Get started
+          </button>
+        </div>
+      </div>
+
+      <div>
+        <Modal show={show} handleClose={handleClose}>
+          <Login />
+        </Modal>
+      </div>
+    </>
+  );
+};
+
+export default Header;

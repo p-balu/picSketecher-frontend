@@ -1,0 +1,56 @@
+.container {
+  width: 65%;
+  margin: 0 auto;
+  display: flex;
+  padding: 50px 50px;
+  font-family: "Georgia Regular";
+}
+
+.container-1 {
+  width: 45%;
+  margin: 0 auto;
+  line-height: normal;
+  margin-top: 100px;
+}
+.image-sketch {
+  height: 730px;
+}
+
+.text-1 {
+  font-weight: 600;
+  font-size: 3rem;
+  line-height: 2px;
+  color: #707070;
+}
+
+.text-2 {
+  font-weight: 600;
+  font-size: 4.75rem;
+  line-height: 1px;
+  color: #f0ad11;
+}
+
+.text-3 {
+  font-weight: 600;
+  font-size: 2.5rem;
+  line-height: 0px;
+  letter-spacing: normal;
+  color: #707070;
+}
+
+.button {
+  background-color: #365a0c;
+  border: none;
+  width: 50%;
+  margin-top: 2%;
+  border-radius: 45px;
+  padding: 22px 35px;
+  color: white;
+  font-size: x-large;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #3f7205;
+}
