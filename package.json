@@ -1,0 +1,11 @@
+{
+  "name": "picsketcher-frontend",
+  "version": "1.0.0",
+  "description": "Frontend of the pic-sketcher application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Team-4",
+  "license": "ISC"
+}
