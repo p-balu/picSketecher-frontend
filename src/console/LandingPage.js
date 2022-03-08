@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import Sketch from "../assets/images/main-pic.png";
 import "../assets/stylesheets/LandingPage.css";
+import { useNavigate } from "react-router";
+
 const LandingPage = () => {
+  const navigate = useNavigate();
   const [show, setShow] = useState(false);
   //get started onClick event handler
   const handleClick = (event) => {
     event.preventDefault();
     console.log("get started clicked");
+    navigate("/image-conversion");
   };
 
   return (

@@ -3,7 +3,8 @@ import "../assets/stylesheets/LoginForm.css";
 const RegistrationForm = ({ handleTabLoginChange }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [username, setUsername] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
 
   const handleRegistration = (event) => {
     event.preventDefault();
@@ -16,6 +17,34 @@ const RegistrationForm = ({ handleTabLoginChange }) => {
 
   return (
     <div className="form-fields">
+        <div className="form-field">
+        <label htmlFor="firstName" id="firstName" className="label">
+          First Name
+        </label>{" "}
+        <input
+          type="text"
+          className="text-input"
+          id="firstName"
+          value={firstName}
+          onChange={(event) => {
+            setFirstName(event.target.value);
+          }}
+        />
+      </div>
+      <div className="form-field">
+        <label htmlFor="lastName" id="lastName" className="label">
+          Last Name
+        </label>{" "}
+        <input
+          type="text"
+          className="text-input"
+          id="lastName"
+          value={lastName}
+          onChange={(event) => {
+            setLastName(event.target.value);
+          }}
+        />
+      </div>
       <div className="form-field">
         <label htmlFor="email" id="email" className="label">
           Email
@@ -30,20 +59,7 @@ const RegistrationForm = ({ handleTabLoginChange }) => {
           }}
         />
       </div>
-      <div className="form-field">
-        <label htmlFor="username" id="username" className="label">
-          Username
-        </label>{" "}
-        <input
-          type="text"
-          className="text-input"
-          id="username"
-          value={username}
-          onChange={(event) => {
-            setUsername(event.target.value);
-          }}
-        />
-      </div>
+   
       <div className="form-field">
         <label htmlFor="password" id="password" className="label">
           Password

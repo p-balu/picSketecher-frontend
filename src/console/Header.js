@@ -1,11 +1,12 @@
 import React, { useEffect, useImperativeHandle, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Logo from "../assets/images/logo.png";
 import "../assets/stylesheets/Header.css";
 import Modal from "../components/Modal";
 import Login from "./Login";
 const Header = () => {
   const [show, setShow] = useState(false);
-
+  const navigate = useNavigate();
   //event handlers
   const handleLogin = (event) => {
     event.preventDefault();
@@ -13,6 +14,7 @@ const Header = () => {
   };
   const handleStart = (event) => {
     event.preventDefault();
+    navigate("/image-conversion");
   };
   const handleClose = () => {
     setShow(false);
