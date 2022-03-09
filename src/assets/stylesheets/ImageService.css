@@ -1,5 +1,55 @@
+.image-conversion {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.section-1 {
+  width: 20%;
+  margin-top: 2%;
+  margin-left: 14%;
+  margin-right: 5%;
+  padding: 15px 20px;
+}
+.section-2 {
+  width: 40%;
+  margin-top: 6%;
+}
+
+.filter-header {
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+.filter-section-active,
+.filter-section-2 {
+  height: 8rem;
+  border: 1px solid gray;
+  padding: 5px 30px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 4%;
+}
+.filter-section-2 {
+  cursor: not-allowed;
+}
+
+/* .filter-section-active:hover {
+  border: 2px solid #0a355e;
+} */
+
+.filter-section-active {
+  border: 2px solid #365a0c;
+}
+
+.filter-section-text {
+  margin-top: 16%;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
 .image-section {
-  position: relative;
+  position: unset;
   border: 2px solid #365a0c;
   padding: 35px 20px;
   border-radius: 6px;
@@ -7,24 +57,20 @@
   flex-direction: column;
   align-items: center;
   background-color: white;
-  width: 30%;
-  height: 500px;
-  margin-left: 12%;
-  margin-top: 4%;
+  width: 70%;
+  height: 30rem;
 }
 
 .uploaded-section {
-  position: relative;
+  position: unset;
   border: 2px solid #365a0c;
   border-radius: 6px;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: white;
-  width: 32%;
-  height: 500px;
-  margin-left: 12%;
-  margin-top: 4%;
+  width: 72%;
+  height: 34rem;
 }
 
 .file-input {
@@ -33,7 +79,7 @@
   width: 100%;
   border: none;
   text-transform: none;
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
   right: 0;
@@ -81,9 +127,9 @@
 .buttons-container {
   display: flex;
   justify-content: flex-end;
-  width: 32%;
+  width: 64%;
   margin-left: 12%;
-  margin-top: 1%;
+  margin-top: 2%;
 }
 
 .clear-button {

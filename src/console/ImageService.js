@@ -1,61 +1,95 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "../assets/stylesheets/ImageService.css";
 import List from "react-list-select";
 const ImageService = () => {
   const fileInputField = useRef(null);
-  const [files, setFiles] = useState({});
+  const [fileUrl, setFileUrl] = useState({});
+  const [file, setFile] = useState({});
   const [imagePreview, setImagePreview] = useState(false);
+  const [imageBytes, setImageBytes] = useState("");
 
   const handleBrowseFile = () => {
     fileInputField.current.click();
   };
   const handleFileChange = (event) => {
-    setFiles(URL.createObjectURL(event.target.files[0]));
+    setFile(event.target.files[0]);
+    setFileUrl(URL.createObjectURL(event.target.files[0]));
     setImagePreview(true);
   };
-  let items = ["Google", "TED", "GitHub", "Big Think", "Microsoft"];
+
+  //checks if the object is empty or not
+  const isEmpty = (object) => {
+    for (const property in object) {
+      return false;
+    }
+    return true;
+  };
+
+  useEffect(() => {
+    console.log("useEffect entered", file);
+    if (!isEmpty(file)) {
+      const reader = new FileReader();
+      reader.onload = function () {
+        let binaryString = reader.result;
+        setImageBytes(btoa(binaryString));
+        console.log("image-bytes", btoa(binaryString));
+      };
+      reader.readAsDataURL(file);
+    }
+  }, [file]);
+
+  const handleFilterClick = (event) => {
+    event.preventDefault();
+    console.log("filter change clicker");
+  };
 
   return (
-    <div>
-      <div>
-        <p>Choose your filter</p>
-        <List
-          items={items}
-          selected={[0]}
-          disabled={[4]}
-          multiple={false}
-          onChange={(event) => {
-            console.log(event);
-          }}
-        />
+    <div className="image-conversion">
+      <div className="section-1">
+        <p className="filter-header">Choose your filter</p>
+        <div className="filter-section-active" onClick={handleFilterClick}>
+          <p className="filter-section-text"> Pencil Sketch</p>
+        </div>
+        <div className="filter-section-2">
+          <p className="filter-section-text"> Filter 1</p>
+        </div>
+        <div className="filter-section-2">
+          <p className="filter-section-text"> Filter 2</p>
+        </div>
+        <div className="filter-section-2">
+          <p className="filter-section-text"> Filter 3</p>
+        </div>
       </div>
-      {imagePreview == false ? (
-        <section className="image-section">
-          <p className="file-text">
-            Drop your picture <br /> <br />
-            or
-          </p>
-          <button
-            type="button"
-            onClick={handleBrowseFile}
-            className="file-upload-button"
-          >
-            Choose File
-          </button>
-          <input
-            type="file"
-            className="file-input"
-            ref={fileInputField}
-            onChange={handleFileChange}
-          />
-        </section>
-      ) : (
-        <img src={files} className="uploaded-section" />
-      )}
+      <div className="section-2">
+        {imagePreview == false ? (
+          <section className="image-section">
+            <p className="file-text">
+              Drop your picture <br /> <br />
+              or
+            </p>
+            <button
+              type="button"
+              onClick={handleBrowseFile}
+              className="file-upload-button"
+            >
+              Choose File
+            </button>
+            <input
+              type="file"
+              className="file-input"
+              ref={fileInputField}
+              onChange={handleFileChange}
+              accept=".jpeg, .png, .jpg"
+            />
+          </section>
+        ) : (
+          <img src={fileUrl} className="uploaded-section" />
+        )}
 
-      <div className="buttons-container">
-        <button className="clear-button">Clear</button>
-        <button className="apply-button">Apply</button>
+        <div className="buttons-container">
+          <button className="clear-button">Clear</button>
+          <button className="apply-button">Apply</button>
+        </div>
       </div>
     </div>
   );
