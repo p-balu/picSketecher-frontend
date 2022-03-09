@@ -19,11 +19,13 @@ const Header = () => {
   const handleClose = () => {
     setShow(false);
   };
-
+  const handleHome = () => {
+    navigate("/");
+  };
   return (
     <>
       <div className="header">
-        <img src={Logo} alt="logo" className="logo" />
+        <img src={Logo} alt="logo" className="logo" onClick={handleHome} />
         <div className="navLinks">
           <button className="link1" onClick={handleLogin}>
             Login

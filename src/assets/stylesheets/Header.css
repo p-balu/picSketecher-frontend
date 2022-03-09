@@ -9,8 +9,9 @@
 }
 .logo {
   width: auto;
-  height: 30px;
+  height: 2rem;
   padding: 10px 40px;
+  cursor: pointer;
 }
 .navLinks {
   width: 22%;
@@ -63,4 +64,47 @@
 
 .link2:hover {
   background-color: #3f7205;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .header {
+    max-height: 7vh;
+    min-height: 5vh;
+  }
+  .logo {
+    height: 1rem;
+    padding: 10px 40px;
+    cursor: pointer;
+  }
+  .link2 {
+    display: none;
+  }
+  .link1 {
+    margin-top: 3px;
+    margin-right: 2%;
+  }
+  .link1::after {
+    width: 100%;
+  }
+
+  .navLinks {
+    width: 35%;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (max-width: 1399px) and (min-width: 1200px) {
 }

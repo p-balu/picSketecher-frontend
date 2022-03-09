@@ -54,3 +54,54 @@
 .button:hover {
   background-color: #3f7205;
 }
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .container {
+    padding: 5px 5px;
+    margin-left: 4%;
+    margin-right: 4%;
+    width: 92%;
+  }
+
+  .container-1 {
+    width: 100%;
+    margin-top: 25%;
+  }
+  .image-sketch {
+    display: none;
+  }
+
+  .text-1 {
+    font-size: 1.5rem;
+  }
+
+  .text-2 {
+    font-size: 3rem;
+  }
+
+  .text-3 {
+    font-size: 1.5rem;
+  }
+  .button {
+    padding: 15px 15px;
+    width: 40%;
+    font-size: 0.75rem;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (max-width: 1399px) and (min-width: 1200px) {
+}

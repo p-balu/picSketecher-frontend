@@ -156,3 +156,75 @@
 .apply-button:hover {
   background-color: #3f7205;
 }
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .section-1 {
+    margin-left: 5%;
+    width: 50%;
+    padding: 7px 14px;
+  }
+  .section-2 {
+    width: 100%;
+    margin-top: 12%;
+  }
+  .filter-header {
+    font-weight: 600;
+    font-size: 0.75rem;
+  }
+  .filter-section-active,
+  .filter-section-2 {
+    height: 5rem;
+    margin-top: 8%;
+  }
+  .filter-section-active {
+    border: 2px solid #365a0c;
+  }
+
+  .filter-section-text {
+    margin-top: 45%;
+    font-size: 0.75rem;
+  }
+  .image-section {
+    height: 18rem;
+  }
+  .uploaded-section {
+    width: 87%;
+    height: 22.5rem;
+  }
+  .file-text {
+    font-size: 0.75rem;
+    margin-top: 55%;
+  }
+  .file-upload-button {
+    padding: 5px 12px;
+    font-size: 0.75rem;
+  }
+  .apply-button {
+    padding: 10px 25px;
+    font-size: 0.75rem;
+  }
+  .clear-button {
+    padding: 10px 25px;
+    font-size: 0.75rem;
+  }
+  .buttons-container {
+    margin-left: 25%;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (max-width: 1399px) and (min-width: 1200px) {
+}
