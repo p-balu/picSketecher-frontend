@@ -95,6 +95,33 @@
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
+  .header {
+    max-height: 7vh;
+    min-height: 5vh;
+  }
+  .logo {
+    height: 1.25rem;
+    padding: 10px 40px;
+    cursor: pointer;
+  }
+
+  .link1 {
+    margin-top: 5px;
+    font-size: 1rem;
+    margin-right: 2%;
+  }
+  .link1::after {
+    width: 100%;
+  }
+
+  .link2 {
+    font-size: 1rem;
+    margin-top: -5px;
+    padding: 0px 20px;
+  }
+  .navLinks {
+    width: 50%;
+  }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */

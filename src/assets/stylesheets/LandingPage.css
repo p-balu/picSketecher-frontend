@@ -13,7 +13,7 @@
   margin-top: 100px;
 }
 .image-sketch {
-  height: 730px;
+  height: 45.625rem;
 }
 
 .text-1 {
@@ -92,6 +92,38 @@
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
+  .container {
+    padding: 5px 5px;
+    margin-left: 4%;
+    margin-right: 4%;
+    width: 92%;
+  }
+
+  .container-1 {
+    width: 100%;
+    margin-top: 15%;
+  }
+  .image-sketch {
+    margin-top: 15%;
+    height: 25.625rem;
+  }
+
+  .text-1 {
+    font-size: 1.6rem;
+  }
+
+  .text-2 {
+    font-size: 3.6rem;
+  }
+
+  .text-3 {
+    font-size: 1.6rem;
+  }
+  .button {
+    padding: 15px 18px;
+    width: 50%;
+    font-size: 1rem;
+  }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */

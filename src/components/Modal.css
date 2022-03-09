@@ -58,6 +58,16 @@
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
+  .modal-main {
+    width: 70%;
+    max-height: 90%;
+    overflow: auto;
+    padding: 12px 12px;
+  }
+
+  .button-close {
+    font-size: 1.25rem;
+  }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */

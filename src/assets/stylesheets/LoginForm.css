@@ -86,6 +86,34 @@
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
+  .form-field {
+    margin-top: 3%;
+  }
+
+  .label {
+    font-size: 1rem;
+  }
+
+  .text-input {
+    padding: 12px 38px;
+  }
+
+  .button-1 {
+    padding: 12px 38px;
+    font-size: 1rem;
+    width: 100%;
+  }
+  .forgot-password {
+    margin-left: 62%;
+    font-size: 0.9rem;
+  }
+  .footer {
+    font-size: 1rem;
+  }
+
+  .sign-up-now {
+    font-size: 1rem;
+  }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */

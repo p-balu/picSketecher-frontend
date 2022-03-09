@@ -159,42 +159,57 @@
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
+  .image-conversion {
+    flex-direction: column;
+  }
   .section-1 {
     margin-left: 5%;
-    width: 50%;
+    width: 80%;
     padding: 7px 14px;
   }
+
+  .sub-section-1 {
+    display: flex;
+  }
   .section-2 {
-    width: 100%;
-    margin-top: 12%;
+    width: 92%;
+    margin-top: 5%;
+    margin-left: 8%;
   }
   .filter-header {
     font-weight: 600;
-    font-size: 0.75rem;
+    font-size: 1rem;
   }
   .filter-section-active,
   .filter-section-2 {
-    height: 5rem;
-    margin-top: 8%;
+    height: 4rem;
+    margin-top: 2%;
+    width: 100%;
+    padding: 5px 18px;
+  }
+
+  .filter-section-2 {
+    margin-left: 3%;
   }
   .filter-section-active {
     border: 2px solid #365a0c;
   }
 
   .filter-section-text {
-    margin-top: 45%;
+    margin-top: 19%;
     font-size: 0.75rem;
   }
   .image-section {
     height: 18rem;
+    width: 82%;
   }
   .uploaded-section {
-    width: 87%;
+    width: 93%;
     height: 22.5rem;
   }
   .file-text {
     font-size: 0.75rem;
-    margin-top: 55%;
+    margin-top: 35%;
   }
   .file-upload-button {
     padding: 5px 12px;
@@ -209,12 +224,65 @@
     font-size: 0.75rem;
   }
   .buttons-container {
-    margin-left: 25%;
+    margin-left: 30%;
   }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
+  .section-1 {
+    margin-left: 5%;
+    width: 50%;
+    padding: 7px 14px;
+  }
+  .section-2 {
+    width: 100%;
+    margin-top: 9.5%;
+  }
+  .filter-header {
+    font-weight: 600;
+    font-size: 1rem;
+  }
+  .filter-section-active,
+  .filter-section-2 {
+    height: 6rem;
+    margin-top: 8%;
+  }
+  .filter-section-active {
+    border: 2px solid #365a0c;
+  }
+
+  .filter-section-text {
+    margin-top: 23%;
+    font-size: 0.75rem;
+  }
+  .image-section {
+    width: 80%;
+    height: 23.75rem;
+  }
+  .uploaded-section {
+    width: 90%;
+    height: 27.75rem;
+  }
+  .file-text {
+    font-size: 0.9rem;
+    margin-top: 37%;
+  }
+  .file-upload-button {
+    padding: 11px 20px;
+    font-size: 0.85rem;
+  }
+  .apply-button {
+    padding: 10px 25px;
+    font-size: 0.75rem;
+  }
+  .clear-button {
+    padding: 10px 25px;
+    font-size: 0.75rem;
+  }
+  .buttons-container {
+    margin-left: 25%;
+  }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */

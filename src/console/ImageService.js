@@ -59,17 +59,19 @@ const ImageService = () => {
     <div className="image-conversion">
       <div className="section-1">
         <p className="filter-header">Choose your filter</p>
-        <div className="filter-section-active" onClick={handleFilterClick}>
-          <p className="filter-section-text"> Pencil Sketch</p>
-        </div>
-        <div className="filter-section-2">
-          <p className="filter-section-text"> Filter 1</p>
-        </div>
-        <div className="filter-section-2">
-          <p className="filter-section-text"> Filter 2</p>
-        </div>
-        <div className="filter-section-2">
-          <p className="filter-section-text"> Filter 3</p>
+        <div className="sub-section-1">
+          <div className="filter-section-active" onClick={handleFilterClick}>
+            <p className="filter-section-text"> Pencil Sketch</p>
+          </div>
+          <div className="filter-section-2">
+            <p className="filter-section-text"> Filter 1</p>
+          </div>
+          <div className="filter-section-2">
+            <p className="filter-section-text"> Filter 2</p>
+          </div>
+          <div className="filter-section-2">
+            <p className="filter-section-text"> Filter 3</p>
+          </div>
         </div>
       </div>
       <div className="section-2">
