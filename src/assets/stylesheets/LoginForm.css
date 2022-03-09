@@ -85,7 +85,7 @@
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
+@media only screen and (max-width: 767px) and (min-width: 600px) {
   .form-field {
     margin-top: 3%;
   }
@@ -117,13 +117,17 @@
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
+@media only screen and(max-width: 991px) and (min-width: 768px) {
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
+@media only screen and (max-width: 1199px) and (min-width: 992px) {
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (max-width: 1399px) and (min-width: 1200px) {
+  .forgot-password {
+    margin-left: 62%;
+    font-size: 1rem;
+  }
 }

@@ -59,6 +59,7 @@
   color: white;
   font-size: large;
   cursor: pointer;
+  height: 2.5rem;
   font-weight: 500;
 }
 
@@ -94,7 +95,7 @@
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
+@media only screen and (max-width: 767px) and (min-width: 600px) {
   .header {
     max-height: 7vh;
     min-height: 5vh;
@@ -125,13 +126,88 @@
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
+@media only screen and (max-width: 991px) and (min-width: 768px) {
+  .header {
+    max-height: 7vh;
+    min-height: 5vh;
+  }
+  .logo {
+    height: 1.5rem;
+    padding: 10px 40px;
+    cursor: pointer;
+  }
+
+  .link1 {
+    margin-top: 5px;
+    font-size: 1.15rem;
+    margin-right: 2%;
+  }
+  .link1::after {
+    width: 100%;
+  }
+
+  .link2 {
+    font-size: 1.15rem;
+    margin-top: -3px;
+    padding: 0px 20px;
+  }
+  .navLinks {
+    width: 40%;
+  }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
+@media only screen and (max-width: 1199px) and (min-width: 992px) {
+  .header {
+    max-height: 7vh;
+    min-height: 5vh;
+  }
+  .logo {
+    height: 1.75rem;
+    padding: 10px 40px;
+    cursor: pointer;
+  }
+
+  .link1 {
+    margin-top: 5px;
+    font-size: 1.25rem;
+    margin-right: 2%;
+  }
+  .link1::after {
+    width: 100%;
+  }
+
+  .link2 {
+    font-size: 1.25rem;
+    margin-top: -3px;
+    padding: 0px 22px;
+  }
+  .navLinks {
+    width: 40%;
+  }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (max-width: 1399px) and (min-width: 1200px) {
+  .logo {
+    height: 1.75rem;
+    padding: 10px 40px;
+    cursor: pointer;
+  }
+
+  .link1 {
+    margin-top: 5px;
+    margin-right: 2%;
+  }
+  .link1::after {
+    width: 100%;
+  }
+
+  .link2 {
+    margin-top: -2px;
+    padding: 0px 22px;
+  }
+  .navLinks {
+    width: 35%;
+  }
 }

@@ -91,7 +91,7 @@
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
+@media only screen and (max-width: 767px) and (min-width: 600px) {
   .container {
     padding: 5px 5px;
     margin-left: 4%;
@@ -127,13 +127,114 @@
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
+@media only screen and (max-width: 991px) and (min-width: 768px) {
+  .container {
+    padding: 5px 5px;
+    margin-left: 7%;
+    margin-right: 4%;
+    width: 85%;
+  }
+
+  .container-1 {
+    width: 100%;
+    margin-top: 20%;
+  }
+  .image-sketch {
+    margin-top: 15%;
+    height: 30rem;
+  }
+
+  .text-1 {
+    font-size: 1.75rem;
+  }
+
+  .text-2 {
+    font-size: 3.75rem;
+  }
+
+  .text-3 {
+    font-size: 1.75rem;
+  }
+  .button {
+    padding: 15px 18px;
+    width: 50%;
+    font-size: 1.25rem;
+  }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
+@media only screen and (max-width: 1199px) and (min-width: 992px) {
+  .container {
+    padding: 5px 5px;
+    margin-left: 7%;
+    margin-right: 4%;
+    width: 85%;
+  }
+
+  .container-1 {
+    width: 40%;
+    margin-top: 27%;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .image-sketch {
+    margin-top: 15%;
+    height: 40rem;
+  }
+
+  .text-1 {
+    font-size: 1.95rem;
+  }
+
+  .text-2 {
+    font-size: 3.95rem;
+  }
+
+  .text-3 {
+    font-size: 1.95rem;
+  }
+  .button {
+    padding: 15px 18px;
+    width: 53%;
+    font-size: 1.45rem;
+  }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (max-width: 1399px) and (min-width: 1200px) {
+  .container {
+    padding: 5px 5px;
+    margin-left: 7%;
+    margin-right: 4%;
+    width: 85%;
+  }
+
+  .container-1 {
+    width: 40%;
+    margin-top: 27%;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .image-sketch {
+    margin-top: 15%;
+    height: 45rem;
+  }
+
+  .text-1 {
+    font-size: 2.15rem;
+  }
+
+  .text-2 {
+    font-size: 4.15rem;
+  }
+
+  .text-3 {
+    font-size: 2.15rem;
+  }
+  .button {
+    padding: 15px 18px;
+    width: 53%;
+    font-size: 1.65rem;
+  }
+
 }
