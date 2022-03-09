@@ -43,6 +43,18 @@ const ImageService = () => {
     console.log("filter change clicker");
   };
 
+  const handleClear = (event) => {
+    event.preventDefault();
+    setFile({});
+    setFileUrl({});
+    setImagePreview(false);
+    setImageBytes("");
+  };
+
+  const handleApply = (event) => {
+    event.preventDefault();
+    console.log("apply filters clicked");
+  };
   return (
     <div className="image-conversion">
       <div className="section-1">
@@ -87,8 +99,12 @@ const ImageService = () => {
         )}
 
         <div className="buttons-container">
-          <button className="clear-button">Clear</button>
-          <button className="apply-button">Apply</button>
+          <button className="clear-button" onClick={handleClear}>
+            Clear
+          </button>
+          <button className="apply-button" onClick={handleApply}>
+            Apply
+          </button>
         </div>
       </div>
     </div>
