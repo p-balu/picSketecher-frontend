@@ -147,6 +147,7 @@
 .apply-button {
   padding: 15px 30px;
   border-radius: 25px;
+  margin-right: 6px;
 }
 
 .clear-button:hover {
@@ -155,6 +156,20 @@
 
 .apply-button:hover {
   background-color: #3f7205;
+}
+
+.download-button {
+  text-decoration: none;
+  padding: 15px 30px;
+  border-radius: 25px;
+  color: white;
+  background: #00cce2;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.download-button:hover {
+  background-color: #30d2e4;
 }
 
 /* Extra small devices (phones, 600px and down) */
@@ -219,6 +234,12 @@
     padding: 10px 25px;
     font-size: 0.75rem;
   }
+
+  .download-button {
+    padding: 10px 25px;
+    font-size: 0.75rem;
+  }
+
   .clear-button {
     padding: 10px 25px;
     font-size: 0.75rem;
@@ -276,6 +297,12 @@
     padding: 10px 25px;
     font-size: 0.75rem;
   }
+
+  .download-button {
+    padding: 10px 25px;
+    font-size: 0.75rem;
+  }
+
   .clear-button {
     padding: 10px 25px;
     font-size: 0.75rem;
@@ -333,6 +360,12 @@
     padding: 10px 25px;
     font-size: 0.75rem;
   }
+
+  .download-button {
+    padding: 10px 25px;
+    font-size: 0.75rem;
+  }
+
   .clear-button {
     padding: 10px 25px;
     font-size: 0.75rem;
@@ -393,6 +426,12 @@
     padding: 12px 30px;
     font-size: 0.85rem;
   }
+
+  .download-button {
+    padding: 12px 30px;
+    font-size: 0.85rem;
+  }
+
   .clear-button {
     padding: 12px 30px;
     font-size: 0.85rem;
@@ -450,6 +489,10 @@
     font-size: 0.9rem;
   }
   .apply-button {
+    padding: 12px 30px;
+    font-size: 0.9rem;
+  }
+  .download-button {
     padding: 12px 30px;
     font-size: 0.9rem;
   }
