@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../assets/stylesheets/LoginRegistrationModal.css";
 import LoginForm from "./LoginForm";
 import RegistrationForm from "./RegistrationForm";
-const Login = () => {
+const Login = ({ handleModalClose }) => {
   const [active, setActive] = useState(true);
   const [tab, setTab] = useState(false);
   const [buttonClass, setButtonClass] = useState("");
@@ -32,9 +32,14 @@ const Login = () => {
     setTab(value);
     setActive(false);
   };
+
   const handleTabLoginChange = (value) => {
     setTab(value);
     setActive(true);
+  };
+
+  const handleModalLoginClose = (value) => {
+    handleModalClose(value);
   };
   return (
     <>
@@ -47,7 +52,10 @@ const Login = () => {
         </button>
       </div>
       {tab == false ? (
-        <LoginForm handleTabChange={handleTabChange} />
+        <LoginForm
+          handleTabChange={handleTabChange}
+          handleModalLoginClose={handleModalLoginClose}
+        />
       ) : (
         <RegistrationForm handleTabLoginChange={handleTabLoginChange} />
       )}

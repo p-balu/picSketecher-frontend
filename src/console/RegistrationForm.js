@@ -1,14 +1,41 @@
 import React, { useState } from "react";
 import "../assets/stylesheets/LoginForm.css";
+import { titleCase } from "title-case";
 const RegistrationForm = ({ handleTabLoginChange }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
 
   const handleRegistration = (event) => {
     event.preventDefault();
     console.log("Registration Button clicked");
+    console.log("keys", email, password, firstName, lastName);
+    const request = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email: email,
+        password: password,
+        firstname: firstName,
+        lastname: lastName,
+      }),
+    };
+    fetch("http://localhost:8000/register/", request)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success == true) {
+          setMessage(data.message);
+          setEmail("");
+          setFirstName("");
+          setLastName("");
+          setPassword("");
+        } else {
+          setError(data.message);
+        }
+      });
   };
 
   const handleLogin = () => {
@@ -17,7 +44,10 @@ const RegistrationForm = ({ handleTabLoginChange }) => {
 
   return (
     <div className="form-fields">
-        <div className="form-field">
+      {message && <div className="success">{titleCase(message)}</div>}
+      {error && <div className="error">{titleCase(error)}</div>}
+
+      <div className="form-field">
         <label htmlFor="firstName" id="firstName" className="label">
           First Name
         </label>{" "}
@@ -59,7 +89,7 @@ const RegistrationForm = ({ handleTabLoginChange }) => {
           }}
         />
       </div>
-   
+
       <div className="form-field">
         <label htmlFor="password" id="password" className="label">
           Password

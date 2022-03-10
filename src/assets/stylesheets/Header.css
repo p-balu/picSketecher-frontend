@@ -67,6 +67,55 @@
   background-color: #3f7205;
 }
 
+/*dropdown*/
+.dropbtn {
+  background-color: transparent;
+  border: none;
+  border-radius: 20px;
+  padding: 9px 22px;
+  color: black;
+  font-size: large;
+  cursor: pointer;
+  height: 2.5rem;
+  font-weight: 500;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a,
+.logout {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.logout {
+  border: none;
+  width: 100%;
+  display: flex;
+  font-size: 1.15rem;
+  font-weight: 500;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.dropdown-content a:hover,
+.logout:hover {
+  background-color: #ddd;
+}
+
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
   .header {
@@ -90,7 +139,8 @@
   }
 
   .navLinks {
-    width: 35%;
+    width: 40%;
+    margin-top: 0px;
   }
 }
 
@@ -98,7 +148,7 @@
 @media only screen and (max-width: 767px) and (min-width: 600px) {
   .header {
     max-height: 7vh;
-    min-height: 5vh;
+    min-height: 4vh;
   }
   .logo {
     height: 1.25rem;
@@ -115,6 +165,11 @@
     width: 100%;
   }
 
+  .dropdown-content {
+    min-width: 132px;
+    margin-top: 0px;
+  }
+
   .link2 {
     font-size: 1rem;
     margin-top: -5px;
@@ -122,6 +177,12 @@
   }
   .navLinks {
     width: 50%;
+    margin-right: 5%;
+    justify-content: flex-end;
+  }
+
+  .dropbtn {
+    margin-top: -6px;
   }
 }
 
@@ -135,6 +196,10 @@
     height: 1.5rem;
     padding: 10px 40px;
     cursor: pointer;
+  }
+
+  .dropdown-content {
+    min-width: 132px;
   }
 
   .link1 {

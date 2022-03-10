@@ -45,7 +45,7 @@
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
   .modal-main {
-    width: 80%;
+    width: 85%;
     max-height: 85%;
     overflow: auto;
     padding: 12px 12px;

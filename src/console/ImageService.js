@@ -53,7 +53,24 @@ const ImageService = () => {
 
   const handleApply = (event) => {
     event.preventDefault();
+    console.log(imageBytes);
     console.log("apply filters clicked");
+    const request = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        image_bytes: imageBytes,
+      }),
+    };
+    fetch("http://localhost:8000/upload/", request)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success == true) {
+          console.log(data);
+        } else {
+          console.log("error", data);
+        }
+      });
   };
   return (
     <div className="image-conversion">
