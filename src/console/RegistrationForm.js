@@ -27,12 +27,14 @@ const RegistrationForm = ({ handleTabLoginChange }) => {
       .then((res) => res.json())
       .then((data) => {
         if (data.success == true) {
+          setError("");
           setMessage(data.message);
           setEmail("");
           setFirstName("");
           setLastName("");
           setPassword("");
         } else {
+          setMessage("");
           setError(data.message);
         }
       });

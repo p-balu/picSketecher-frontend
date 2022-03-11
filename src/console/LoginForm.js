@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../assets/stylesheets/LoginForm.css";
-
+import { titleCase } from "title-case";
 const LoginForm = ({ handleTabChange, handleModalLoginClose }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -28,13 +28,16 @@ const LoginForm = ({ handleTabChange, handleModalLoginClose }) => {
       .then((res) => res.json())
       .then((data) => {
         if (data.success == true) {
-          console.log(data);
+          console.log("Success");
+          setError("");
           setMessage(data.message);
           setEmail("");
           setPassword("");
           localStorage.setItem("jwt-token", data.jwt);
           handleModalLoginClose(false);
         } else {
+          console.log("Error");
+          setMessage("");
           setError(data.message);
         }
       });
