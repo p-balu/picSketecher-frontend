@@ -35,6 +35,7 @@
   background-color: inherit;
   font-size: large;
   font-weight: 500;
+  margin-right: 10%;
   cursor: pointer;
 }
 
@@ -66,17 +67,27 @@
   background-color: #3f7205;
 }
 
+.username {
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
 /*dropdown*/
 .dropbtn {
-  background-color: transparent;
-  border: none;
+  background-color: white;
+  display: flex;
   border-radius: 20px;
-  padding: 9px 22px;
-  color: black;
+  padding: 7px 22px;
+  color: #365a0c;
   font-size: large;
   cursor: pointer;
-  height: 2.5rem;
+  height: 3.2rem;
   font-weight: 500;
+  border: 2px solid #365a0c;
+}
+
+.dropbtn:hover {
+  background-color: #f5ffeac4;
 }
 .dropdown {
   position: relative;
@@ -86,33 +97,46 @@
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  min-width: 220px;
+  box-shadow: 0px 8px 16px 0px rgba(83, 82, 82, 0.2);
   z-index: 1;
+  margin-top: 7px;
+  border-radius: 5px;
+  text-align: center;
+  margin-left: -15px;
 }
 
 .dropdown-content a,
 .logout {
-  color: black;
-  padding: 12px 16px;
+  color: #365a0c;
+  padding: 20px 30px;
   text-decoration: none;
   display: block;
+  margin: 2px;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 .logout {
   border: none;
-  width: 100%;
+  display: flex;
+  padding: 17px 30px;
+  margin-bottom: 2%;
+  text-align: center;
+  justify-content: center;
+  width: 90%;
   display: flex;
   font-size: 1.15rem;
-  font-weight: 500;
+  font-weight: 400;
   background-color: transparent;
   cursor: pointer;
 }
 
 .dropdown-content a:hover,
 .logout:hover {
-  background-color: #ddd;
+  background-color: #f3ffe6;
+  border-radius: 5px;
 }
 
 /* Extra small devices (phones, 600px and down) */
@@ -126,7 +150,7 @@
     display: none;
   }
   .link1 {
-    margin-top: 3px;
+    margin-top: 7px;
     margin-right: 2%;
   }
   .link1::after {
@@ -136,6 +160,14 @@
   .navLinks {
     width: 40%;
     margin-top: 0px;
+  }
+
+  .dropbtn {
+    padding: 0px 11px;
+    height: 2.2rem;
+  }
+  .dropdown-content {
+    min-width: 180px;
   }
 }
 
@@ -175,6 +207,9 @@
   .dropbtn {
     margin-top: -6px;
   }
+  .dropdown-content {
+    min-width: 215px;
+  }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
@@ -205,6 +240,9 @@
   }
   .navLinks {
     width: 40%;
+  }
+  .dropdown-content {
+    min-width: 216px;
   }
 }
 

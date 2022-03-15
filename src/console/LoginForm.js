@@ -29,11 +29,11 @@ const LoginForm = ({ handleTabChange, handleModalLoginClose }) => {
       .then((data) => {
         if (data.success == true) {
           console.log("Success");
-          console.log(data);
           setError("");
           setMessage(data.message);
           setEmail("");
           setPassword("");
+          localStorage.setItem("user", data["First Name"]);
           localStorage.setItem("jwt-token", data.jwt);
           setIsLoggedIn(true);
           handleModalLoginClose(false);

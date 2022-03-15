@@ -1,11 +1,12 @@
-import { faCaretSquareDown } from "@fortawesome/free-regular-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Logo from "../assets/images/logo.png";
 import "../assets/stylesheets/Header.css";
+import AccountLogin from "../assets/svg/AccountLogo";
 import Modal from "../components/Modal";
 import Login from "./Login";
+import jwt_decode from "jwt-decode";
+
 const Header = () => {
   const ref = useRef(null);
 
@@ -28,9 +29,33 @@ const Header = () => {
 
   const handleLogout = () => {
     console.log("logout clicked");
-    localStorage.removeItem("jwt-token");
-    navigate("/");
+    const request = {
+      method: "POST",
+    };
+    fetch("http://localhost:8000/logout/", request)
+      .then((res) => res.json())
+      .then((res) => {
+        if (res.success == true) {
+          localStorage.removeItem("jwt-token");
+          localStorage.removeItem("user");
+          navigate("/");
+        }
+      });
   };
+
+  useEffect(() => {
+    console.log("Use Effect");
+    const token = localStorage.getItem("jwt-token");
+    //JWT check if token expired
+    if (token) {
+      console.log("token expiry check");
+      const decodedToken = jwt_decode(token);
+      const dateTime = new Date().getTime();
+      if (decodedToken.exp * 1000 < dateTime) {
+        handleLogout();
+      }
+    }
+  }, [location]);
 
   const handleDropDown = () => {
     console.log("dropDownClicked");
@@ -59,8 +84,6 @@ const Header = () => {
     };
   }, []);
 
-  console.log("jwt-token", localStorage.getItem("jwt-token"));
-
   const showHideClassName = dropDown
     ? "dropdown-content display-block"
     : "dropdown-content display-none";
@@ -83,10 +106,13 @@ const Header = () => {
           {localStorage.getItem("jwt-token") !== null && (
             <div className="dropdown">
               <button onClick={handleDropDown} className="dropbtn">
-                Account <FontAwesomeIcon icon={faCaretSquareDown} />
+                <AccountLogin />
+                <span className="username">
+                  {localStorage.getItem("user")}{" "}
+                </span>
               </button>
               <div id="myDropdown" ref={ref} className={showHideClassName}>
-                <a href="#">Profile</a>
+                <a href="#">Profile </a>
                 <a href="#">Settings</a>
                 <button className="logout" onClick={handleLogout}>
                   Logout

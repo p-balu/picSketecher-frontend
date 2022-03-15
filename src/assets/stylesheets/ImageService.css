@@ -16,6 +16,7 @@
   width: 40%;
   margin-top: 6%;
   animation: fadeInRight 2s;
+  cursor: pointer;
 }
 
 .filter-header {
