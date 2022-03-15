@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Login/> should match the snapshot 1`] = `
+<form
+  className="form-fields"
+  onSubmit={[Function]}
+>
+  
+  <div
+    className="form-field"
+  >
+    <label
+      className="label"
+      htmlFor="email"
+      id="email"
+    >
+      Email
+    </label>
+    <input
+      className="text-input"
+      id="email"
+      name="email"
+      onChange={[Function]}
+      type="email"
+      value=""
+    />
+  </div>
+  <div
+    className="form-field"
+  >
+    <label
+      className="label"
+      htmlFor="password"
+      id="password"
+    >
+      Password
+    </label>
+    <input
+      className="text-input"
+      id="password"
+      name="password"
+      onChange={[Function]}
+      type="password"
+      value=""
+    />
+  </div>
+  <button
+    className="button-1"
+    id="button"
+    name="button"
+  >
+    LOGIN
+  </button>
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "justifyContent": "flex-end",
+      }
+    }
+  >
+    <a
+      className="forgot-password"
+      to="#"
+    >
+      Forgot password ?
+    </a>
+  </div>
+  <p
+    className="footer"
+  >
+    Not a member?
+     
+    <button
+      className="sign-up-now"
+      onClick={[Function]}
+    >
+      Sign up now!
+    </button>
+  </p>
+</form>
+`;

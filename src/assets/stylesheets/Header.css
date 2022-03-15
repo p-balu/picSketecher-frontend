@@ -1,9 +1,7 @@
 .header {
   display: flex;
   justify-content: space-between;
-  padding: 18px 0px;
-  max-height: 6vh;
-  min-height: 4vh;
+  padding: 13px 10px;
   box-shadow: 2px 2px 3px 0 rgba(117, 124, 129, 0.12);
   border: 1px solid #e2e5e7;
 }
@@ -20,7 +18,8 @@
   display: flex;
   margin-top: 8px;
   font-weight: 600;
-  justify-content: space-evenly;
+  justify-content: flex-end;
+  padding: 0px 40px;
 }
 
 .link1:hover:after {
@@ -118,10 +117,6 @@
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
-  .header {
-    max-height: 7vh;
-    min-height: 5vh;
-  }
   .logo {
     height: 1rem;
     padding: 10px 40px;
@@ -146,10 +141,6 @@
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (max-width: 767px) and (min-width: 600px) {
-  .header {
-    max-height: 7vh;
-    min-height: 4vh;
-  }
   .logo {
     height: 1.25rem;
     padding: 10px 40px;
@@ -188,10 +179,6 @@
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (max-width: 991px) and (min-width: 768px) {
-  .header {
-    max-height: 7vh;
-    min-height: 5vh;
-  }
   .logo {
     height: 1.5rem;
     padding: 10px 40px;

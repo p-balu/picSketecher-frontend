@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import "../assets/stylesheets/LoginForm.css";
 import { titleCase } from "title-case";
+
 const RegistrationForm = ({ handleTabLoginChange }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -12,7 +12,6 @@ const RegistrationForm = ({ handleTabLoginChange }) => {
   const handleRegistration = (event) => {
     event.preventDefault();
     console.log("Registration Button clicked");
-    console.log("keys", email, password, firstName, lastName);
     const request = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -45,18 +44,24 @@ const RegistrationForm = ({ handleTabLoginChange }) => {
   };
 
   return (
-    <div className="form-fields">
+    <form className="form-fields" onSubmit={handleRegistration}>
       {message && <div className="success">{titleCase(message)}</div>}
       {error && <div className="error">{titleCase(error)}</div>}
 
       <div className="form-field">
-        <label htmlFor="firstName" id="firstName" className="label">
+        <label
+          htmlFor="firstName"
+          id="firstName"
+          name="firstName"
+          className="label"
+        >
           First Name
         </label>{" "}
         <input
           type="text"
           className="text-input"
           id="firstName"
+          name="firstName"
           value={firstName}
           onChange={(event) => {
             setFirstName(event.target.value);
@@ -64,13 +69,19 @@ const RegistrationForm = ({ handleTabLoginChange }) => {
         />
       </div>
       <div className="form-field">
-        <label htmlFor="lastName" id="lastName" className="label">
+        <label
+          htmlFor="lastName"
+          id="lastName"
+          name="lastName"
+          className="label"
+        >
           Last Name
         </label>{" "}
         <input
           type="text"
           className="text-input"
           id="lastName"
+          name="lastName"
           value={lastName}
           onChange={(event) => {
             setLastName(event.target.value);
@@ -78,13 +89,14 @@ const RegistrationForm = ({ handleTabLoginChange }) => {
         />
       </div>
       <div className="form-field">
-        <label htmlFor="email" id="email" className="label">
+        <label htmlFor="email" id="email" name="email" className="label">
           Email
         </label>{" "}
         <input
           type="email"
           className="text-input"
           id="email"
+          name="email"
           value={email}
           onChange={(event) => {
             setEmail(event.target.value);
@@ -93,20 +105,26 @@ const RegistrationForm = ({ handleTabLoginChange }) => {
       </div>
 
       <div className="form-field">
-        <label htmlFor="password" id="password" className="label">
+        <label
+          htmlFor="password"
+          id="password"
+          name="password"
+          className="label"
+        >
           Password
         </label>{" "}
         <input
           type="password"
           className="text-input"
           id="password"
+          name="password"
           value={password}
           onChange={(event) => {
             setPassword(event.target.value);
           }}
         />
       </div>
-      <button className="button-1" onClick={handleRegistration}>
+      <button name="button" className="button-1">
         SIGN UP
       </button>
       <p className="footer">
@@ -115,7 +133,7 @@ const RegistrationForm = ({ handleTabLoginChange }) => {
           Log In
         </button>
       </p>
-    </div>
+    </form>
   );
 };
 export default RegistrationForm;

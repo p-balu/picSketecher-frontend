@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import "../assets/stylesheets/ImageService.css";
-import List from "react-list-select";
+
 const ImageService = () => {
   const fileInputField = useRef(null);
   const [fileUrl, setFileUrl] = useState({});

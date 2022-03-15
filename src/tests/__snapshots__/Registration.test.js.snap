@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Login/> should match the snapshot 1`] = `
+<form
+  className="form-fields"
+  onSubmit={[Function]}
+>
+  
+  
+  <div
+    className="form-field"
+  >
+    <label
+      className="label"
+      htmlFor="firstName"
+      id="firstName"
+      name="firstName"
+    >
+      First Name
+    </label>
+     
+    <input
+      className="text-input"
+      id="firstName"
+      name="firstName"
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+  </div>
+  <div
+    className="form-field"
+  >
+    <label
+      className="label"
+      htmlFor="lastName"
+      id="lastName"
+      name="lastName"
+    >
+      Last Name
+    </label>
+     
+    <input
+      className="text-input"
+      id="lastName"
+      name="lastName"
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+  </div>
+  <div
+    className="form-field"
+  >
+    <label
+      className="label"
+      htmlFor="email"
+      id="email"
+      name="email"
+    >
+      Email
+    </label>
+     
+    <input
+      className="text-input"
+      id="email"
+      name="email"
+      onChange={[Function]}
+      type="email"
+      value=""
+    />
+  </div>
+  <div
+    className="form-field"
+  >
+    <label
+      className="label"
+      htmlFor="password"
+      id="password"
+      name="password"
+    >
+      Password
+    </label>
+     
+    <input
+      className="text-input"
+      id="password"
+      name="password"
+      onChange={[Function]}
+      type="password"
+      value=""
+    />
+  </div>
+  <button
+    className="button-1"
+    name="button"
+  >
+    SIGN UP
+  </button>
+  <p
+    className="footer"
+  >
+    Already have account?
+     
+    <button
+      className="sign-up-now"
+      onClick={[Function]}
+    >
+      Log In
+    </button>
+  </p>
+</form>
+`;

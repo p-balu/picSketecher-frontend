@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "../assets/stylesheets/LoginForm.css";
 import { titleCase } from "title-case";
 const LoginForm = ({ handleTabChange, handleModalLoginClose }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   // const handleChange = (event) => {
   //   setEmail(event.target.value);
@@ -29,11 +29,13 @@ const LoginForm = ({ handleTabChange, handleModalLoginClose }) => {
       .then((data) => {
         if (data.success == true) {
           console.log("Success");
+          console.log(data);
           setError("");
           setMessage(data.message);
           setEmail("");
           setPassword("");
           localStorage.setItem("jwt-token", data.jwt);
+          setIsLoggedIn(true);
           handleModalLoginClose(false);
         } else {
           console.log("Error");
@@ -48,7 +50,7 @@ const LoginForm = ({ handleTabChange, handleModalLoginClose }) => {
   };
 
   return (
-    <div className="form-fields">
+    <form className="form-fields" onSubmit={handleLogin}>
       {/* {message && <div className="success">{titleCase(message)}</div>} */}
       {error && <div className="error">{titleCase(error)}</div>}
       <div className="form-field">
@@ -59,6 +61,7 @@ const LoginForm = ({ handleTabChange, handleModalLoginClose }) => {
           type="email"
           className="text-input"
           id="email"
+          name="email"
           value={email}
           onChange={(event) => {
             setEmail(event.target.value);
@@ -71,6 +74,7 @@ const LoginForm = ({ handleTabChange, handleModalLoginClose }) => {
         </label>
         <input
           type="password"
+          name="password"
           className="text-input"
           id="password"
           value={password}
@@ -79,7 +83,7 @@ const LoginForm = ({ handleTabChange, handleModalLoginClose }) => {
           }}
         />
       </div>
-      <button className="button-1" onClick={handleLogin}>
+      <button name="button" id="button" className="button-1">
         LOGIN
       </button>
       <div style={{ display: "flex", justifyContent: "flex-end" }}>
@@ -93,7 +97,7 @@ const LoginForm = ({ handleTabChange, handleModalLoginClose }) => {
           Sign up now!
         </button>
       </p>
-    </div>
+    </form>
   );
 };
 export default LoginForm;

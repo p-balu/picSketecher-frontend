@@ -4,25 +4,34 @@
   "description": "Frontend of the pic-sketcher application",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --mode development --open --hot",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "test": "jest --config ./jest.config.json",
+    "test:watch": "npm run test -- --watch"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.6",
     "@babel/core": "^7.16.0",
     "@babel/plugin-proposal-class-properties": "^7.16.0",
+    "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.0",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.6",
     "babel-loader": "^8.2.3",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^6.5.1",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
+    "jest": "^27.5.1",
+    "jsdom": "19.0.0",
+    "jsdom-global": "3.0.2",
     "style-loader": "^3.3.1",
     "url-loader": "^4.1.1",
     "webpack": "^5.70.0",
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.7.4"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
   },
   "browser": {
     "[module-name]": false
@@ -32,6 +41,7 @@
     "@fortawesome/free-regular-svg-icons": "^5.15.4",
     "@fortawesome/react-fontawesome": "^0.1.16",
     "axios": "^0.24.0",
+    "enzyme": "^3.11.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -40,5 +50,14 @@
     "title-case": "^3.0.3"
   },
   "author": "Team-4",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/p-balu/picSketecher-frontend.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/p-balu/picSketecher-frontend/issues"
+  },
+  "homepage": "https://github.com/p-balu/picSketecher-frontend#readme"
 }

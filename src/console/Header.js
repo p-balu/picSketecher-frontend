@@ -71,9 +71,14 @@ const Header = () => {
         <img src={Logo} alt="logo" className="logo" onClick={handleHome} />
         <div className="navLinks">
           {localStorage.getItem("jwt-token") === null && (
-            <button className="link1" onClick={handleLogin}>
-              Login
-            </button>
+            <>
+              <button className="link1" onClick={handleLogin}>
+                Login
+              </button>
+              <button className="link2" onClick={handleStart}>
+                Get started
+              </button>
+            </>
           )}
           {localStorage.getItem("jwt-token") !== null && (
             <div className="dropdown">
@@ -89,9 +94,6 @@ const Header = () => {
               </div>
             </div>
           )}
-          <button className="link2" onClick={handleStart}>
-            Get started
-          </button>
         </div>
       </div>
 
