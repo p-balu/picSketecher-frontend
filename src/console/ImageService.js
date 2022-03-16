@@ -137,7 +137,7 @@ const ImageService = () => {
             Apply
           </button>
           {outputImagePreview && (
-            <a href={outputImageBytes} className="download-button">
+            <a href={outputImageBytes} download className="download-button">
               Download
             </a>
           )}
