@@ -6,6 +6,7 @@ import AccountLogin from "../assets/svg/AccountLogo";
 import Modal from "../components/Modal";
 import Login from "./Login";
 import jwt_decode from "jwt-decode";
+import { titleCase } from "title-case";
 
 const Header = () => {
   const ref = useRef(null);
@@ -108,7 +109,7 @@ const Header = () => {
               <button onClick={handleDropDown} className="dropbtn">
                 <AccountLogin />
                 <span className="username">
-                  {localStorage.getItem("user")}{" "}
+                  {titleCase(localStorage.getItem("user"))}{" "}
                 </span>
               </button>
               <div id="myDropdown" ref={ref} className={showHideClassName}>
