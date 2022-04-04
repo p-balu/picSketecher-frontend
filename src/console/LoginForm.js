@@ -7,6 +7,7 @@ const LoginForm = ({ handleTabChange, handleModalLoginClose }) => {
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userId, setUserId] = useState("");
 
   // const handleChange = (event) => {
   //   setEmail(event.target.value);
@@ -28,13 +29,15 @@ const LoginForm = ({ handleTabChange, handleModalLoginClose }) => {
       .then((res) => res.json())
       .then((data) => {
         if (data.success == true) {
-          console.log("Success");
+          console.log("Success", data);
           setError("");
+          setUserId(data.id);
           setMessage(data.message);
           setEmail("");
           setPassword("");
-          localStorage.setItem("user", data["First Name"]);
           localStorage.setItem("jwt-token", data.jwt);
+          localStorage.setItem("id", data.token_id);
+          localStorage.setItem("user", data["First Name"]);
           setIsLoggedIn(true);
           handleModalLoginClose(false);
         } else {

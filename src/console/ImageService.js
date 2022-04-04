@@ -28,11 +28,9 @@ const ImageService = () => {
   };
 
   useEffect(() => {
-    console.log("useEffect entered", file);
     if (!isEmpty(file)) {
       const reader = new FileReader();
       reader.onload = function () {
-        console.log(reader.result);
         let base64result = reader.result.split(",")[1];
         setImageBytes(base64result);
       };
@@ -42,7 +40,6 @@ const ImageService = () => {
 
   const handleFilterClick = (event) => {
     event.preventDefault();
-    console.log("filter change clicker");
   };
 
   const handleClear = (event) => {
@@ -56,7 +53,6 @@ const ImageService = () => {
 
   const handleApply = (event) => {
     event.preventDefault();
-    console.log(imageBytes);
     console.log("apply filters clicked");
     const request = {
       method: "POST",
@@ -65,13 +61,14 @@ const ImageService = () => {
         image_bytes: imageBytes,
       }),
     };
+    console.log(imageBytes);
     fetch("http://localhost:8000/upload/", request)
       .then((res) => res.json())
       .then((data) => {
         if (data.success == true) {
-          console.log(data);
-          let base64 = "data:image/jpeg;base64,";
-          let output = base64 + data.image_bytes;
+          console.log(data.VanGogh);
+          let base64 = "data:image/png;base64,";
+          let output = base64 + data.image_bytes.chenki;
           setOutputImageBytes(output);
           console.log("image-bytes", output);
           setOutputImagePreview(true);

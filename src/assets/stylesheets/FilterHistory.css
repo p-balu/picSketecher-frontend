@@ -1,0 +1,48 @@
+.filter-history {
+  margin-top: 3%;
+  max-width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.border {
+  border: 5px solid rgb(233, 217, 0);
+  height: 1.2rem;
+  margin-top: 1.4%;
+  margin-right: 1%;
+}
+
+.header-container {
+  display: flex;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th {
+  border-bottom: 2px solid #365a0c;
+  padding: 10px;
+  text-align: center;
+}
+
+table td {
+  height: 6.5rem;
+  border-bottom: 2px solid #365a0c;
+  padding: 10px;
+  text-align: center;
+}
+
+.download {
+  text-decoration: none;
+  color: #5a5a5a;
+}
+
+.delete-button {
+  color: #f01a1a;
+  border: none;
+  background-color: white;
+  font-size: 1.1rem;
+  margin-left: 5%;
+  cursor: pointer;
+}

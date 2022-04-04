@@ -5,7 +5,7 @@ const AccountLogin = () => {
     <svg
       className="svg-icon"
       viewBox="0 0 20 20"
-      style={{ width: "2rem", height: "2rem" }}
+      style={{ width: "2rem", height: "2rem",marginTop:"-4px" }}
     >
       <path
         fill="#365a0c"

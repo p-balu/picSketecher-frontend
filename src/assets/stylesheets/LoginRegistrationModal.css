@@ -25,6 +25,19 @@
   color: black;
 }
 
+.account-update {
+  max-width: 35%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form-update {
+  margin-top: 5%;
+  box-shadow: 2px 2px 3px 0 rgba(117, 124, 129, 0.12);
+  border: 1px solid #e2e5e7;
+  padding: 0px 50px;
+  border-radius: 10px;
+}
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
   .button1 {

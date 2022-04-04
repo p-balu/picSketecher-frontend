@@ -28,35 +28,46 @@ const Header = () => {
     setShow(false);
   };
 
-  const handleLogout = () => {
-    console.log("logout clicked");
+  const handleConvert = (event) => {
+    event.preventDefault();
+    navigate("/image-conversion");
+  };
+
+  const handleLogout = (event) => {
+    event.preventDefault();
+    let id = localStorage.getItem("id");
+    console.log(typeof id);
     const request = {
       method: "POST",
+      headers: { "Content-Type": "application/json" },
+
+      body: JSON.stringify({
+        id: id,
+      }),
     };
     fetch("http://localhost:8000/logout/", request)
       .then((res) => res.json())
       .then((res) => {
         if (res.success == true) {
           localStorage.removeItem("jwt-token");
-          localStorage.removeItem("user");
           navigate("/");
         }
       });
   };
 
-  useEffect(() => {
-    console.log("Use Effect");
-    const token = localStorage.getItem("jwt-token");
-    //JWT check if token expired
-    if (token) {
-      console.log("token expiry check");
-      const decodedToken = jwt_decode(token);
-      const dateTime = new Date().getTime();
-      if (decodedToken.exp * 1000 < dateTime) {
-        handleLogout();
-      }
-    }
-  }, [location]);
+  // useEffect(() => {
+  //   console.log("Use Effect");
+  //   const token = localStorage.getItem("jwt-token");
+  //   //JWT check if token expired
+  //   if (token) {
+  //     console.log("token expiry check");
+  //     const decodedToken = jwt_decode(token);
+  //     const dateTime = new Date().getTime();
+  //     if (decodedToken.exp * 1000 < dateTime) {
+  //       handleLogout();
+  //     }
+  //   }
+  // }, [location]);
 
   const handleDropDown = () => {
     console.log("dropDownClicked");
@@ -105,21 +116,31 @@ const Header = () => {
             </>
           )}
           {localStorage.getItem("jwt-token") !== null && (
-            <div className="dropdown">
-              <button onClick={handleDropDown} className="dropbtn">
-                <AccountLogin />
-                <span className="username">
-                  {titleCase(localStorage.getItem("user"))}{" "}
-                </span>
+            <>
+              <button
+                className="link2"
+                style={{ marginRight: "1%" }}
+                onClick={handleConvert}
+              >
+                Convert
               </button>
-              <div id="myDropdown" ref={ref} className={showHideClassName}>
-                <a href="#">Profile </a>
-                <a href="#">Settings</a>
-                <button className="logout" onClick={handleLogout}>
-                  Logout
-                </button>{" "}
+              <div className="dropdown">
+                <button onClick={handleDropDown} className="dropbtn">
+                  <AccountLogin />
+                  <span className="username">
+                    {/* {titleCase(localStorage.getItem("user"))}{" "} */}
+                    User
+                  </span>
+                </button>
+                <div id="myDropdown" ref={ref} className={showHideClassName}>
+                  <a href="/account">Account </a>
+                  <a href="/filter-history">History </a>
+                  <button className="logout" onClick={handleLogout}>
+                    Logout
+                  </button>{" "}
+                </div>
               </div>
-            </div>
+            </>
           )}
         </div>
       </div>
