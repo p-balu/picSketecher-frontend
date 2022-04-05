@@ -8,6 +8,9 @@ const Account = () => {
   const [newPassword, setNewPassword] = useState("");
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
+  const [userUpdate, setUserUpdate] = useState(false);
+  const [passwordUpdate, setPasswordUpdate] = useState(false);
+
   const handlePasswordChange = (event) => {
     event.preventDefault();
     const request = {
@@ -24,9 +27,13 @@ const Account = () => {
       .then((data) => {
         if (data.success == false) {
           setSuccess("");
+          setUserUpdate(false);
+          setPasswordUpdate(true);
           setError(data.message);
         } else {
           setError("");
+          setUserUpdate(false);
+          setPasswordUpdate(true);
           setSuccess(data.message);
         }
       });
@@ -64,11 +71,13 @@ const Account = () => {
       .then((data) => {
         if (data.success == true) {
           setError("");
-          console.log("entered");
+          setPasswordUpdate(false);
+          setUserUpdate(true);
           setSuccess(data.message);
         } else {
           setSuccess("");
-          console.log("entered");
+          setPasswordUpdate(false);
+          setUserUpdate(true);
           setError(data.message);
         }
       });
@@ -77,8 +86,10 @@ const Account = () => {
   return (
     <div className="account-update">
       <form className="form-update">
-        {success && <div className="success">{titleCase(success)}</div>}
-        {error && <div className="error">{titleCase(error)}</div>}
+        {userUpdate && success && (
+          <div className="success">{titleCase(success)}</div>
+        )}
+        {userUpdate && error && <div className="error">{titleCase(error)}</div>}
         <p
           className="button1 active"
           style={{ width: "30%", textAlign: "center" }}
@@ -127,8 +138,12 @@ const Account = () => {
       </form>
 
       <form className="form-update">
-        {success && <div className="success">{titleCase(success)}</div>}
-        {error && <div className="error">{titleCase(error)}</div>}
+        {passwordUpdate && success && (
+          <div className="success">{titleCase(success)}</div>
+        )}
+        {passwordUpdate && error && (
+          <div className="error">{titleCase(error)}</div>
+        )}
         <p
           className="button1 active"
           style={{ width: "30%", textAlign: "center" }}

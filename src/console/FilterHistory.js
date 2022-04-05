@@ -3,40 +3,38 @@ import React, { useEffect, useState } from "react";
 import "../assets/stylesheets/FilterHistory.css";
 import { titleCase } from "title-case";
 import Moment from "react-moment";
+import Delete from "./Delete";
+import Modal from "../components/Modal";
 
 const FilterHistory = () => {
   const [imageBytes, setImageBytes] = useState([]);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const [imageId, setImageId] = useState("");
   const [refresh, setRefresh] = useState(false);
+  const [show, setShow] = useState(false);
 
   const handleDelete = (event, id, userId) => {
     event.preventDefault();
-    console.log("Delete clciked", id, userId);
-
-    const request = {
-      method: "DELETE",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        id: id,
-        isUser: false,
-      }),
-    };
-    fetch("http://localhost:8000/save/", request)
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.success == "True") {
-          setRefresh(true);
-          setError("");
-          setSuccess("Image Deleted Successfully");
-        } else {
-          setSuccess("");
-          setError("Unable to fetch images server error occured");
-        }
-      });
+    setShow(true);
+    setImageId(id);
   };
 
+  const handleModalClose = (value) => {
+    setShow(value);
+  };
+
+  const handleSuccess = (value) => {
+    setSuccess(value);
+  };
+
+  const handleError = (value) => {
+    setError(value);
+  };
+
+  const handleRefresh = (value) => {
+    setRefresh(value);
+  };
   useEffect(() => {
     const id = localStorage.getItem("user");
     console.log(id);
@@ -46,6 +44,7 @@ const FilterHistory = () => {
       // headers: { "Content-Type": "application/json" },
       params: {
         id: id,
+        is_User: true,
       },
     };
     axios.get("http://localhost:8000/save/", request).then((res) => {
@@ -127,6 +126,16 @@ const FilterHistory = () => {
           </tbody>
         </table>
       </div>
+
+      <Modal show={show}>
+        <Delete
+          handleModalClose={handleModalClose}
+          handleSuccess={handleSuccess}
+          handleError={handleError}
+          handleRefresh={handleRefresh}
+          imageId={imageId}
+        />
+      </Modal>
     </>
   );
 };

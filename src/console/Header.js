@@ -156,7 +156,7 @@ const Header = () => {
       </div>
 
       <div>
-        <Modal show={show} handleClose={handleClose}>
+        <Modal show={show} handleClose={handleClose} text="log">
           <Login handleModalClose={handleModalClose} />
         </Modal>
       </div>

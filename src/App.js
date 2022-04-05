@@ -11,7 +11,6 @@ import Header from "./console/Header";
 import LandingPage from "./console/LandingPage";
 import ImageService from "./console/ImageService";
 import Account from "./console/Account";
-import PublicHOC from "./hoc/publicRoutes";
 import FilterHistory from "./console/FilterHistory";
 import NotFound from "./console/NotFound";
 

@@ -121,7 +121,42 @@ const ImageService = () => {
       });
   };
 
-  console.log(success, error);
+  //handle cartoon image and make an api call to another server
+  const handleCartooning = (event) => {
+    event.preventDefault();
+    setOutputImagePreview(false);
+    setOutputImageBytes("");
+    setLoading(true);
+    setStyle("cartoon");
+    const request = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "X-Requested-With",
+      },
+      body: JSON.stringify({
+        image_bytes: imageBytes,
+      }),
+    };
+    fetch("http://172.17.0.2:5000/file-upload", request)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.message == "File successfully uploaded") {
+          let base64 = "data:image/png;base64,";
+          let string = data.url.slice(0, -1);
+          let finalString = string.slice(2);
+          let output = base64 + finalString;
+          setOutputImageBytes(output);
+          setLoading(false);
+          setOutputImagePreview(true);
+          setError("");
+        } else {
+          setError(data.message);
+        }
+      });
+  };
+
   const addClassName = isEmpty(file) ? "filter-section not" : "filter-section";
   const disabled = isEmpty(file) ? true : false;
   return (
@@ -169,8 +204,15 @@ const ImageService = () => {
             >
               <p className="filter-section-text">Chenki</p>
             </button>
-            <button className={addClassName} disabled={disabled}>
-              <p className="filter-section-text"> Cartooning</p>
+            <button
+              className={addClassName}
+              disabled={disabled}
+              onClick={handleCartooning}
+              style={
+                style === "cartoon" ? { border: "2px solid #365a0c" } : null
+              }
+            >
+              <p className="filter-section-text">Cartooning</p>
             </button>
           </div>
         </div>
@@ -220,9 +262,11 @@ const ImageService = () => {
                 <a href={outputImageBytes} download className="download-button">
                   Download
                 </a>
-                <button className="apply-button" onClick={handleSave}>
-                  Save
-                </button>
+                {localStorage.getItem("jwt-token") && (
+                  <button className="apply-button" onClick={handleSave}>
+                    Save
+                  </button>
+                )}
               </>
             )}
           </div>
