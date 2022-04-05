@@ -18,6 +18,7 @@
 table {
   width: 100%;
   border-collapse: collapse;
+  margin-bottom: 5%;
 }
 
 table th {
@@ -45,4 +46,9 @@ table td {
   font-size: 1.1rem;
   margin-left: 5%;
   cursor: pointer;
+}
+
+.table-image {
+  width: 5rem;
+  height: 5rem;
 }

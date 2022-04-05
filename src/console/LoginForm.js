@@ -37,7 +37,7 @@ const LoginForm = ({ handleTabChange, handleModalLoginClose }) => {
           setPassword("");
           localStorage.setItem("jwt-token", data.jwt);
           localStorage.setItem("id", data.token_id);
-          localStorage.setItem("user", data["First Name"]);
+          localStorage.setItem("user", data.user_id);
           setIsLoggedIn(true);
           handleModalLoginClose(false);
         } else {

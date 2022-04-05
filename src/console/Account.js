@@ -1,15 +1,84 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../assets/stylesheets/LoginRegistrationModal.css";
-
+import { titleCase } from "title-case";
 const Account = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
+  const [success, setSuccess] = useState("");
+  const [error, setError] = useState("");
+  const handlePasswordChange = (event) => {
+    event.preventDefault();
+    const request = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        id: localStorage.getItem("user"),
+        currentpassword: currentPassword,
+        updatedpassword: newPassword,
+      }),
+    };
+    fetch("http://localhost:8000/updatepassword/", request)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success == false) {
+          setSuccess("");
+          setError(data.message);
+        } else {
+          setError("");
+          setSuccess(data.message);
+        }
+      });
+  };
+
+  useEffect(() => {
+    const request = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        id: localStorage.getItem("user"),
+      }),
+    };
+    fetch("http://localhost:8000/getuser/", request)
+      .then((res) => res.json())
+      .then((data) => {
+        setFirstName(data["First Name"]);
+        setLastName(data["Last Name"]);
+      });
+  }, [localStorage.getItem("user")]);
+
+  const handleUserDetailsChange = (event) => {
+    event.preventDefault();
+    const request = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        id: localStorage.getItem("user"),
+        updatedfirstname: firstName,
+        updatedlastname: lastName,
+      }),
+    };
+    fetch("http://localhost:8000/updateuser/", request)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success == true) {
+          setError("");
+          console.log("entered");
+          setSuccess(data.message);
+        } else {
+          setSuccess("");
+          console.log("entered");
+          setError(data.message);
+        }
+      });
+  };
 
   return (
     <div className="account-update">
       <form className="form-update">
+        {success && <div className="success">{titleCase(success)}</div>}
+        {error && <div className="error">{titleCase(error)}</div>}
         <p
           className="button1 active"
           style={{ width: "30%", textAlign: "center" }}
@@ -51,12 +120,15 @@ const Account = () => {
           id="button"
           className="button-1"
           style={{ marginBottom: "4%" }}
+          onClick={handleUserDetailsChange}
         >
           UPDATE
         </button>{" "}
       </form>
 
       <form className="form-update">
+        {success && <div className="success">{titleCase(success)}</div>}
+        {error && <div className="error">{titleCase(error)}</div>}
         <p
           className="button1 active"
           style={{ width: "30%", textAlign: "center" }}
@@ -102,6 +174,7 @@ const Account = () => {
           id="button"
           className="button-1"
           style={{ marginBottom: "4%" }}
+          onClick={handlePasswordChange}
         >
           CHANGE PASSWORD
         </button>{" "}

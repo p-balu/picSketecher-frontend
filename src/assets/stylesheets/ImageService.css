@@ -2,11 +2,12 @@
   display: flex;
   width: 100%;
   justify-content: center;
+  margin-bottom: 2%;
 }
 
 .section-1 {
   width: 20%;
-  margin-top: 2%;
+  margin-top: 1%;
   margin-left: 14%;
   margin-right: 5%;
   padding: 15px 20px;
@@ -14,7 +15,7 @@
 }
 .section-2 {
   width: 40%;
-  margin-top: 6%;
+  margin-top: 5%;
   animation: fadeInRight 2s;
   cursor: pointer;
 }
@@ -24,31 +25,29 @@
   font-size: 1.25rem;
 }
 
-.filter-section-active,
-.filter-section-2 {
+.filter-section {
   height: 8rem;
   border: 1px solid gray;
   padding: 5px 30px;
   border-radius: 10px;
   cursor: pointer;
   margin-top: 4%;
+  width: 100%;
+  background-color: white;
 }
-.filter-section-2 {
+
+.not {
   cursor: not-allowed;
 }
 
-/* .filter-section-active:hover {
+.filter-section:hover {
   border: 2px solid #0a355e;
-} */
-
-.filter-section-active {
-  border: 2px solid #365a0c;
 }
 
 .filter-section-text {
-  margin-top: 16%;
   font-size: 1rem;
-  font-weight: 600;
+  color: #5a5a5a;
+  font-weight: 650;
 }
 
 .image-section {
@@ -60,8 +59,9 @@
   flex-direction: column;
   align-items: center;
   background-color: white;
-  width: 70%;
-  height: 30rem;
+  width: 75%;
+  height: 36rem;
+  margin-top: 1.5%;
 }
 
 .uploaded-section {
@@ -72,8 +72,9 @@
   flex-direction: column;
   align-items: center;
   background-color: white;
-  width: 75%;
-  height: 34rem;
+  width: 80%;
+  height: 40rem;
+  margin-top: 1.5%;
 }
 
 .file-input {
@@ -131,7 +132,7 @@
   display: flex;
   justify-content: flex-end;
   width: 64%;
-  margin-left: 12%;
+  margin-left: 15%;
   margin-top: 2%;
 }
 
@@ -147,10 +148,16 @@
   font-weight: 500;
 }
 
+.messages {
+  max-width: 30%;
+  margin-top: 1%;
+  margin-left: auto;
+  margin-right: auto;
+}
 .apply-button {
   padding: 15px 30px;
   border-radius: 25px;
-  margin-right: 6px;
+  margin-left: 6px;
 }
 
 .clear-button:hover {
@@ -173,6 +180,11 @@
 
 .download-button:hover {
   background-color: #30d2e4;
+}
+
+.sub-section-1 {
+  overflow: auto;
+  scroll-behavior: smooth;
 }
 
 @keyframes fadeInRight {
@@ -220,19 +232,11 @@
     font-weight: 600;
     font-size: 1rem;
   }
-  .filter-section-active,
-  .filter-section-2 {
+  .filter-section {
     height: 4rem;
     margin-top: 2%;
     width: 100%;
     padding: 5px 18px;
-  }
-
-  .filter-section-2 {
-    margin-left: 3%;
-  }
-  .filter-section-active {
-    border: 2px solid #365a0c;
   }
 
   .filter-section-text {
@@ -289,13 +293,9 @@
     font-weight: 600;
     font-size: 1rem;
   }
-  .filter-section-active,
-  .filter-section-2 {
+  .filter-section {
     height: 6rem;
     margin-top: 8%;
-  }
-  .filter-section-active {
-    border: 2px solid #365a0c;
   }
 
   .filter-section-text {
@@ -352,13 +352,9 @@
     font-weight: 600;
     font-size: 1.25rem;
   }
-  .filter-section-active,
-  .filter-section-2 {
+  .filter-section {
     height: 6rem;
     margin-top: 8%;
-  }
-  .filter-section-active {
-    border: 2px solid #365a0c;
   }
 
   .filter-section-text {
@@ -418,13 +414,9 @@
     font-weight: 600;
     font-size: 1.35rem;
   }
-  .filter-section-active,
-  .filter-section-2 {
+  .filter-section {
     height: 6.5rem;
     margin-top: 8%;
-  }
-  .filter-section-active {
-    border: 2px solid #365a0c;
   }
 
   .filter-section-text {
@@ -484,13 +476,9 @@
     font-weight: 600;
     font-size: 1.4rem;
   }
-  .filter-section-active,
-  .filter-section-2 {
+  .filter-section {
     height: 6.75rem;
     margin-top: 8%;
-  }
-  .filter-section-active {
-    border: 2px solid #365a0c;
   }
 
   .filter-section-text {

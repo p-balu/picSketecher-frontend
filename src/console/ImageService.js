@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import "../assets/stylesheets/ImageService.css";
-
+import Loader from "../components/Loader";
+import { titleCase } from "title-case";
 const ImageService = () => {
   const fileInputField = useRef(null);
   const [fileUrl, setFileUrl] = useState({});
@@ -9,6 +10,10 @@ const ImageService = () => {
   const [outputImagePreview, setOutputImagePreview] = useState(false);
   const [imageBytes, setImageBytes] = useState("");
   const [outputImageBytes, setOutputImageBytes] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [style, setStyle] = useState("");
+  const [success, setSuccess] = useState("");
+  const [error, setError] = useState("");
 
   const handleBrowseFile = () => {
     fileInputField.current.click();
@@ -17,6 +22,7 @@ const ImageService = () => {
     setFile(event.target.files[0]);
     setFileUrl(URL.createObjectURL(event.target.files[0]));
     setImagePreview(true);
+    setStyle("original");
   };
 
   //checks if the object is empty or not
@@ -38,9 +44,9 @@ const ImageService = () => {
     }
   }, [file]);
 
-  const handleFilterClick = (event) => {
-    event.preventDefault();
-  };
+  // const handleFilterClick = (event) => {
+  //   event.preventDefault();
+  // };
 
   const handleClear = (event) => {
     event.preventDefault();
@@ -49,98 +55,180 @@ const ImageService = () => {
     setImagePreview(false);
     setOutputImagePreview(false);
     setImageBytes("");
+    setError("");
+    setSuccess("");
   };
 
-  const handleApply = (event) => {
+  const handleFilterChange = (event, value) => {
     event.preventDefault();
-    console.log("apply filters clicked");
+    setOutputImagePreview(false);
+    setLoading(true);
+    setStyle(value);
+    console.log("apply filters onchange", value);
     const request = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         image_bytes: imageBytes,
+        style: value,
       }),
     };
-    console.log(imageBytes);
     fetch("http://localhost:8000/upload/", request)
       .then((res) => res.json())
       .then((data) => {
         if (data.success == true) {
-          console.log(data.VanGogh);
           let base64 = "data:image/png;base64,";
-          let output = base64 + data.image_bytes.chenki;
+          let output = base64 + data.image_bytes;
           setOutputImageBytes(output);
-          console.log("image-bytes", output);
+          setLoading(false);
           setOutputImagePreview(true);
+          setError("");
         } else {
-          console.log("error", data);
+          setError(data.message);
         }
       });
   };
-  return (
-    <div className="image-conversion">
-      <div className="section-1">
-        <p className="filter-header">Choose your filter</p>
-        <div className="sub-section-1">
-          <div className="filter-section-active" onClick={handleFilterClick}>
-            <p className="filter-section-text"> Pencil Sketch</p>
-          </div>
-          <div className="filter-section-2">
-            <p className="filter-section-text"> Filter 1</p>
-          </div>
-          <div className="filter-section-2">
-            <p className="filter-section-text"> Filter 2</p>
-          </div>
-          <div className="filter-section-2">
-            <p className="filter-section-text"> Filter 3</p>
-          </div>
-        </div>
-      </div>
-      <div className="section-2">
-        {outputImagePreview == false ? (
-          imagePreview == false ? (
-            <section className="image-section">
-              <p className="file-text">
-                Drop your picture <br /> <br />
-                or
-              </p>
-              <button
-                type="button"
-                onClick={handleBrowseFile}
-                className="file-upload-button"
-              >
-                Choose File
-              </button>
-              <input
-                type="file"
-                className="file-input"
-                ref={fileInputField}
-                onChange={handleFileChange}
-                accept=".jpeg, .png, .jpg"
-              />
-            </section>
-          ) : (
-            <img src={fileUrl} className="uploaded-section" />
-          )
-        ) : (
-          <img src={outputImageBytes} className="uploaded-section" />
-        )}
 
-        <div className="buttons-container">
-          <button className="clear-button" onClick={handleClear}>
-            Clear
-          </button>
-          <button className="apply-button" onClick={handleApply}>
-            Apply
-          </button>
-          {outputImagePreview && (
-            <a href={outputImageBytes} download className="download-button">
-              Download
-            </a>
+  const handleFilterOrginial = () => {
+    setStyle("original");
+    setOutputImageBytes(fileUrl);
+  };
+
+  const handleSave = (event) => {
+    event.preventDefault();
+    const request = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        image_bytes: outputImageBytes,
+        filter_type: style,
+        id: localStorage.getItem("user"),
+      }),
+    };
+    fetch("http://localhost:8000/save/", request)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        console.log(data.message);
+        if (data.success == false) {
+          setSuccess("");
+          setError("Image storing unsuccessfull");
+        } else {
+          console.log("entered");
+          setError("");
+          setSuccess("Image saved successfully");
+        }
+      });
+  };
+
+  console.log(success, error);
+  const addClassName = isEmpty(file) ? "filter-section not" : "filter-section";
+  const disabled = isEmpty(file) ? true : false;
+  return (
+    <>
+      <div className="messages">
+        {success && <div className="success">{titleCase(success)}</div>}
+        {error && <div className="error">{titleCase(error)}</div>}
+      </div>
+
+      <div className="image-conversion">
+        <div className="section-1">
+          <p className="filter-header">Choose your filter</p>
+          <div className="sub-section-1">
+            <button
+              className={addClassName}
+              style={
+                style === "original" ? { border: "2px solid #365a0c" } : null
+              }
+              onClick={handleFilterOrginial}
+              disabled={disabled}
+            >
+              <p className="filter-section-text">Original</p>
+            </button>
+            <button
+              className={addClassName}
+              disabled={disabled}
+              onClick={(event) => handleFilterChange(event, "gray")}
+              style={style === "gray" ? { border: "2px solid #365a0c" } : null}
+            >
+              <p className="filter-section-text">Pencil Sketch</p>
+            </button>
+            <button
+              className={addClassName}
+              disabled={disabled}
+              onClick={(event) => handleFilterChange(event, "van")}
+              style={style === "van" ? { border: "2px solid #365a0c" } : null}
+            >
+              <p className="filter-section-text">VanGoh</p>
+            </button>
+            <button
+              className={addClassName}
+              disabled={disabled}
+              onClick={(event) => handleFilterChange(event, "chen")}
+              style={style === "chen" ? { border: "2px solid #365a0c" } : null}
+            >
+              <p className="filter-section-text">Chenki</p>
+            </button>
+            <button className={addClassName} disabled={disabled}>
+              <p className="filter-section-text"> Cartooning</p>
+            </button>
+          </div>
+        </div>
+        <div className="section-2">
+          {loading == false ? (
+            outputImagePreview == false ? (
+              imagePreview == false ? (
+                <section className="image-section">
+                  <p className="file-text">
+                    Drop your picture <br /> <br />
+                    or
+                  </p>
+                  <button
+                    type="button"
+                    onClick={handleBrowseFile}
+                    className="file-upload-button"
+                  >
+                    Choose File
+                  </button>
+                  <input
+                    type="file"
+                    className="file-input"
+                    ref={fileInputField}
+                    onChange={handleFileChange}
+                    accept=".jpeg, .png, .jpg"
+                  />
+                </section>
+              ) : (
+                <img src={fileUrl} className="uploaded-section" />
+              )
+            ) : (
+              <img src={outputImageBytes} className="uploaded-section" />
+            )
+          ) : (
+            <div className="uploaded-section">
+              <Loader />
+            </div>
           )}
+
+          <div className="buttons-container">
+            <button className="clear-button" onClick={handleClear}>
+              Clear
+            </button>
+            {/**/}
+            {outputImagePreview && (
+              <>
+                <a href={outputImageBytes} download className="download-button">
+                  Download
+                </a>
+                <button className="apply-button" onClick={handleSave}>
+                  Save
+                </button>
+              </>
+            )}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 export default ImageService;
