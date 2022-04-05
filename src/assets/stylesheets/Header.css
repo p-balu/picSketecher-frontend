@@ -147,8 +147,7 @@
     cursor: pointer;
   }
   .link2 {
-    margin-top: 7px;
-    margin-right: 2%;
+    display: none;
   }
   .link1 {
     margin-top: 7px;
@@ -169,6 +168,9 @@
   }
   .dropdown-content {
     min-width: 160px;
+  }
+  .username {
+    margin-top: 4px;
   }
 }
 

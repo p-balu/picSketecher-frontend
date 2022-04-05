@@ -1,0 +1,32 @@
+.svg-icon {
+  width: 2rem;
+  height: 2rem;
+  margin-top: -4px;
+}
+@media only screen and (max-width: 600px) {
+  .svg-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-top: 3px;
+  }
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 767px) and (min-width: 600px) {
+  .svg-icon {
+    width: 1.6rem;
+    height: 1.6rem;
+    margin-top: 2px;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 991px) and (min-width: 768px) {
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (max-width: 1199px) and (min-width: 992px) {
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (max-width: 1399px) and (min-width: 1200px) {
+}

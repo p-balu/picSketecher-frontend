@@ -52,3 +52,45 @@ table td {
   width: 5rem;
   height: 5rem;
 }
+
+@media only screen and (max-width: 600px) {
+  .filter-history {
+    max-width: 95%;
+  }
+  .border {
+    margin-top: 4.5%;
+  }
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 767px) and (min-width: 600px) {
+  .filter-history {
+    max-width: 90%;
+  }
+  .border {
+    margin-top: 2.5%;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 991px) and (min-width: 768px) {
+  .filter-history {
+    max-width: 85%;
+  }
+  .border {
+    margin-top: 2.5%;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (max-width: 1199px) and (min-width: 992px) {
+  .filter-history {
+    max-width: 75%;
+  }
+  .border {
+    margin-top: 2.5%;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (max-width: 1399px) and (min-width: 1200px) {
+}

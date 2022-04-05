@@ -29,6 +29,7 @@
   max-width: 35%;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 2%;
 }
 
 .form-update {
@@ -43,6 +44,9 @@
   .button1 {
     font-size: 1rem;
   }
+  .account-update {
+    max-width: 85%;
+  }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -50,12 +54,18 @@
   .button1 {
     font-size: 1rem;
   }
+  .account-update {
+    max-width: 75%;
+  }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
-@media only screen and(max-width: 991px) and (min-width: 768px) {
+@media only screen and (max-width: 991px) and (min-width: 768px) {
   .button1 {
     font-size: 1.25rem;
+  }
+  .account-update {
+    max-width: 65%;
   }
 }
 
@@ -64,11 +74,17 @@
   .button1 {
     font-size: 1.35rem;
   }
+  .account-update {
+    max-width: 50%;
+  }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (max-width: 1399px) and (min-width: 1200px) {
   .button1 {
     font-size: 1.45rem;
+  }
+  .account-update {
+    max-width: 40%;
   }
 }
