@@ -139,7 +139,7 @@ const ImageService = () => {
         image_bytes: imageBytes,
       }),
     };
-    fetch("http://172.17.0.2:5000/file-upload", request)
+    fetch("http://localhost:4000/file-upload", request)
       .then((res) => res.json())
       .then((data) => {
         if (data.message == "File successfully uploaded") {
@@ -171,6 +171,7 @@ const ImageService = () => {
           <p className="filter-header">Choose your filter</p>
           <div className="sub-section-1">
             <button
+              id="btn-original"
               className={addClassName}
               style={
                 style === "original" ? { border: "2px solid #365a0c" } : null
@@ -181,6 +182,7 @@ const ImageService = () => {
               <p className="filter-section-text">Original</p>
             </button>
             <button
+              id="btn-sketch"
               className={addClassName}
               disabled={disabled}
               onClick={(event) => handleFilterChange(event, "gray")}
@@ -189,22 +191,25 @@ const ImageService = () => {
               <p className="filter-section-text">Pencil Sketch</p>
             </button>
             <button
+              id="btn-vangogh"
               className={addClassName}
               disabled={disabled}
               onClick={(event) => handleFilterChange(event, "van")}
               style={style === "van" ? { border: "2px solid #365a0c" } : null}
             >
-              <p className="filter-section-text">VanGoh</p>
+              <p className="filter-section-text">Van Gogh</p>
             </button>
             <button
+              id="btn-chenke"
               className={addClassName}
               disabled={disabled}
               onClick={(event) => handleFilterChange(event, "chen")}
               style={style === "chen" ? { border: "2px solid #365a0c" } : null}
             >
-              <p className="filter-section-text">Chenki</p>
+              <p className="filter-section-text">Chen ke</p>
             </button>
             <button
+              id="btn-cartoon"
               className={addClassName}
               disabled={disabled}
               onClick={handleCartooning}
