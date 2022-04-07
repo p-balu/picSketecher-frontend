@@ -73,7 +73,7 @@ const ImageService = () => {
         style: value,
       }),
     };
-    fetch("http://localhost:8000/upload/", request)
+    fetch("http://stage-picksetcher.herokuapp.com/upload/", request)
       .then((res) => res.json())
       .then((data) => {
         if (data.success == true) {
@@ -105,7 +105,7 @@ const ImageService = () => {
         id: localStorage.getItem("user"),
       }),
     };
-    fetch("http://localhost:8000/save/", request)
+    fetch("http://stage-picksetcher.herokuapp.com/save/", request)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -139,7 +139,7 @@ const ImageService = () => {
         image_bytes: imageBytes,
       }),
     };
-    fetch("http://localhost:4000/file-upload", request)
+    fetch("http://localhost:5000/file-upload", request)
       .then((res) => res.json())
       .then((data) => {
         if (data.message == "File successfully uploaded") {

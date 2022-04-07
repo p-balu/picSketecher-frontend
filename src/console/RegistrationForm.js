@@ -22,7 +22,7 @@ const RegistrationForm = ({ handleTabLoginChange }) => {
         lastname: lastName,
       }),
     };
-    fetch("http://localhost:8000/register/", request)
+    fetch("http://stage-picksetcher.herokuapp.com/register/", request)
       .then((res) => res.json())
       .then((data) => {
         if (data.success == true) {

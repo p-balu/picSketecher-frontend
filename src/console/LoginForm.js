@@ -25,7 +25,7 @@ const LoginForm = ({ handleTabChange, handleModalLoginClose }) => {
         password: password,
       }),
     };
-    fetch("http://localhost:8000/login/", request)
+    fetch("http://stage-picksetcher.herokuapp.com/login/", request)
       .then((res) => res.json())
       .then((data) => {
         if (data.success == true) {

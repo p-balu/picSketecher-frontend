@@ -47,7 +47,7 @@ const FilterHistory = () => {
         is_User: true,
       },
     };
-    axios.get("http://localhost:8000/save/", request).then((res) => {
+    axios.get("http://stage-picksetcher.herokuapp.com/save/", request).then((res) => {
       if (res.data.success == true) {
         console.log(res.data.image_data);
         setImageBytes(res.data.image_data);
