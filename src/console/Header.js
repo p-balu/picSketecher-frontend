@@ -45,7 +45,7 @@ const Header = () => {
         id: id,
       }),
     };
-    fetch("http://stage-picksetcher.herokuapp.com/logout/", request)
+    fetch("http://localhost:8000/logout/", request)
       .then((res) => res.json())
       .then((res) => {
         if (res.success == true) {
@@ -77,7 +77,7 @@ const Header = () => {
         id: localStorage.getItem("user"),
       }),
     };
-    fetch("http://stage-picksetcher.herokuapp.com/getuser/", request)
+    fetch("http://localhost:8000/getuser/", request)
       .then((res) => res.json())
       .then((data) => setFirstName(data["First Name"]));
   }, [localStorage.getItem("user")]);
