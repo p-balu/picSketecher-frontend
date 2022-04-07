@@ -139,7 +139,7 @@ const ImageService = () => {
         image_bytes: imageBytes,
       }),
     };
-    fetch("http://stage-picksetcher.herokuapp.com/file-upload", request)
+    fetch("http://localhost:5000/file-upload", request)
       .then((res) => res.json())
       .then((data) => {
         if (data.message == "File successfully uploaded") {
