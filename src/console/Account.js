@@ -22,7 +22,7 @@ const Account = () => {
         updatedpassword: newPassword,
       }),
     };
-    fetch("http://stage-picksetcher.herokuapp.com/updatepassword/", request)
+    fetch("http://localhost:8000/updatepassword/", request)
       .then((res) => res.json())
       .then((data) => {
         if (data.success == false) {
@@ -47,7 +47,7 @@ const Account = () => {
         id: localStorage.getItem("user"),
       }),
     };
-    fetch("http://stage-picksetcher.herokuapp.com/getuser/", request)
+    fetch("http://localhost:8000/getuser/", request)
       .then((res) => res.json())
       .then((data) => {
         setFirstName(data["First Name"]);
@@ -66,7 +66,7 @@ const Account = () => {
         updatedlastname: lastName,
       }),
     };
-    fetch("http://stage-picksetcher.herokuapp.com/updateuser/", request)
+    fetch("http://localhost:8000/updateuser/", request)
       .then((res) => res.json())
       .then((data) => {
         if (data.success == true) {

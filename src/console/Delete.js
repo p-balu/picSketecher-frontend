@@ -23,7 +23,7 @@ const Delete = ({
           isUser: false,
         },
       };
-      axios.get("http://stage-picksetcher.herokuapp.com/save/", request).then((res) => {
+      axios.get("http://localhost:8000/save/", request).then((res) => {
         if (res.data.success == true) {
           setImageBytes(res.data.image_data);
         } else {
@@ -49,7 +49,7 @@ const Delete = ({
         isUser: false,
       }),
     };
-    fetch("http://stage-picksetcher.herokuapp.com/save/", request)
+    fetch("http://localhost:8000/save/", request)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
