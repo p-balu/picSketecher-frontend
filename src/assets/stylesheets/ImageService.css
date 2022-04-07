@@ -33,11 +33,10 @@
   cursor: pointer;
   margin-top: 4%;
   width: 100%;
-  background-color: white;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 0.7;
+  /* opacity: 0.7; */
 }
 
 .not {
@@ -45,25 +44,44 @@
 }
 
 #btn-original {
-  background-image: url(../images/original.jpeg);
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.3),
+      rgba(255, 255, 255, 0.3)
+    ),
+    url("../images/original.jpeg");
 }
 
 #btn-sketch {
-  background-image: url(../images/sketch.jpeg);
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.1),
+      rgba(255, 255, 255, 0.1)
+    ),
+    url("../images/sketch.jpeg");
 }
 
 #btn-vangogh {
-  background-image: url(../images/VanGogh.jpeg);
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.3),
+      rgba(255, 255, 255, 0.3)
+    ),
+    url("../images/VanGogh.jpeg");
 }
 
 #btn-chenke {
-  background-image: url(../images/ChenKe.jpeg);
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.3),
+      rgba(255, 255, 255, 0.3)
+    ),
+    url("../images/ChenKe.jpeg");
 }
 
 #btn-cartoon {
-  background-image: url(../images/cartoon.jpeg);
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.4),
+      rgba(255, 255, 255, 0.4)
+    ),
+    url("../images/cartoon.jpeg");
 }
-
 
 .filter-section:hover {
   border: 2px solid #1064b3;
@@ -73,7 +91,6 @@
   font-size: 1rem;
   /* color: #5a5a5a; */
   color: black;
-  opacity: 1;
   font-weight: 650;
 }
 
